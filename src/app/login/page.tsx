@@ -1,0 +1,5 @@
+export const metadata = { title: "Login" };
+
+export default function LoginPage() {
+  return <section className="py-16"><div className="luxury-container grid gap-10 md:grid-cols-2"><div><p className="text-sm uppercase tracking-[0.28em] text-gold">Account</p><h1 className="mt-4 font-serif text-6xl font-bold text-forest dark:text-cream">Welcome back</h1><p className="mt-4 text-charcoal/65 dark:text-cream/65">Manage orders, wishlist, addresses and skincare preferences.</p></div><form className="grid gap-4 rounded-lg border border-charcoal/10 p-6 dark:border-cream/10"><input className="rounded-lg border border-charcoal/10 bg-transparent px-4 py-3" placeholder="Email" /><input className="rounded-lg border border-charcoal/10 bg-transparent px-4 py-3" placeholder="Password" type="password" /><button className="rounded-full bg-forest px-6 py-4 font-semibold text-cream dark:bg-gold dark:text-charcoal" type="button">Login</button><button className="rounded-full border border-forest/20 px-6 py-4 font-semibold text-forest dark:border-cream/20 dark:text-cream" type="button">Create account</button></form></div></section>;
+}

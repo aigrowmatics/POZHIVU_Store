@@ -1,0 +1,5 @@
+export const metadata = { title: "Privacy Policy" };
+
+export default function LegalPage() {
+  return <section className="py-16"><div className="luxury-container max-w-3xl"><p className="text-sm uppercase tracking-[0.28em] text-gold">Legal</p><h1 className="mt-4 font-serif text-6xl font-bold text-forest dark:text-cream">Privacy Policy</h1><p className="mt-8 text-lg leading-8 text-charcoal/70 dark:text-cream/70">POZHIVU collects customer, order, shipping, support and analytics data only to operate the store, process payments, improve service and meet legal obligations. Payment data is handled by PCI-compliant gateways such as Razorpay and Stripe. Cookies may be used for cart persistence, security and analytics. Customer data is stored securely and access is limited to authorized operations staff.</p><p className="mt-6 text-sm text-charcoal/50 dark:text-cream/50">Template for launch review. Final legal copy should be approved by the business and legal counsel before production.</p></div></section>;
+}

@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String
+  passwordHash String
+  role         Role      @default(CUSTOMER)
+  addresses    Address[]
+  orders       Order[]
+  createdAt    DateTime  @default(now())
+}
+
+model Address {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation(fields: [userId], references: [id])
+  name    String
+  phone   String
+  line1   String
+  line2   String?
+  city    String
+  state   String
+  pincode String
+  country String @default("India")
+}
+
+model Product {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String
+  tagline     String
+  description String
+  price       Int
+  compareAt   Int?
+  image       String
+  inventory   Int         @default(0)
+  rating      Float       @default(5)
+  featured    Boolean     @default(true)
+  orderItems  OrderItem[]
+  createdAt   DateTime    @default(now())
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id])
+  email           String
+  status          OrderStatus @default(PENDING)
+  paymentProvider String
+  paymentRef      String?
+  shippingRef     String?
+  subtotal        Int
+  shipping        Int
+  discount        Int         @default(0)
+  total           Int
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Int
+}
+
+model Coupon {
+  id        String    @id @default(cuid())
+  code      String    @unique
+  type      String
+  value     Int
+  active    Boolean   @default(true)
+  expiresAt DateTime?
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  PACKED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
