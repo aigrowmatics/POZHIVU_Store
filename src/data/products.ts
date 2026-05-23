@@ -20,7 +20,7 @@ export const products: Product[] = [
     price: 349,
     compareAt: 449,
     rating: 4.9,
-    image: "/Products/rose-soap.jpg",
+    image: "/Products/rose_soap1.jpeg",
     notes: ["Rose extract", "Donkey milk", "Shea butter"],
     description: "A creamy bar enriched with donkey milk and rose botanicals for a gentle, luminous cleanse."
   },
@@ -32,7 +32,7 @@ export const products: Product[] = [
     price: 329,
     compareAt: 429,
     rating: 4.8,
-    image: "/Products/mint-soap.jpg",
+    image: "/Products/Mint_soap.jpeg",
     notes: ["Mint leaf", "Donkey milk", "Olive oil"],
     description: "A refreshing, low-toxin cleansing bar designed for humid mornings and post-workday renewal."
   },
@@ -44,7 +44,7 @@ export const products: Product[] = [
     price: 379,
     compareAt: 499,
     rating: 4.9,
-    image: "/Products/nargis-soap.jpg",
+    image: "/Products/Nargis_soap.jpeg",
     notes: ["Nargis accord", "Donkey milk", "Coconut oil"],
     description: "A limited floral blend made for evening rituals and gifting."
   },
@@ -56,7 +56,7 @@ export const products: Product[] = [
     price: 339,
     compareAt: 439,
     rating: 4.7,
-    image: "/Products/coco-soap.jpg",
+    image: "/Products/Coco_soap.jpeg",
     notes: ["Coconut milk", "Donkey milk", "Cocoa butter"],
     description: "A rich bar with coconut and milk proteins to leave skin feeling supple without heaviness."
   },
@@ -68,7 +68,7 @@ export const products: Product[] = [
     price: 359,
     compareAt: 469,
     rating: 4.9,
-    image: "/Products/lavender-soap.jpg",
+    image: "/Products/Lavendar_soap.jpeg",
     notes: ["Lavender", "Donkey milk", "Almond oil"],
     description: "A tranquil lavender bar that turns ordinary baths into a soft wellness ritual."
   },
@@ -80,10 +80,22 @@ export const products: Product[] = [
     price: 299,
     compareAt: 399,
     rating: 4.8,
-    image: "/Products/plain-soap.jpg",
+    image: "/Products/Plain_soap.jpeg",
     notes: ["Unscented", "Donkey milk", "Glycerin"],
     description: "A fragrance-light everyday bar made for sensitive skin and family use."
-  }
+  },
+  {
+    id: "all-products",
+    slug: "all-products",
+    name: "All Products",
+    tagline: "Discover our complete range of natural soaps",
+    price: 199,
+    compareAt: 299,
+    rating: 4.8,
+    image: "/Products/All_products.jpeg",
+    notes: ["Unscented", "Donkey milk", "Glycerin"],
+    description: "All the benefits of our natural soap range in one convenient set."
+}
 ];
 
 export const getProduct = (slug: string) => products.find((product) => product.slug === slug);

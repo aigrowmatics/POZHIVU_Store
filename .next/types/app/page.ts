@@ -1,4 +1,4 @@
-// File: F:\AIGROWMATICS_FOLDER\Pozhivu\POZHIVU Ecommerce\src\app\page.tsx
+// File: F:\AIGROWMATICS_FOLDER\AIGROWMATICS_Github_Repo\POZHIVU_STORE\POZHIVU_Store\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

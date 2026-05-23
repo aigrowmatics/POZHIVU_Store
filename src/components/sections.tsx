@@ -1,31 +1,81 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ArrowRight, CheckCircle2, Mail, MessageCircle, ShieldCheck, Sparkles, Truck } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { benefits, testimonials } from "@/data/content";
 import { products } from "@/data/products";
 
+const heroImages = [
+  {
+    src: "/Products/All_products.jpeg",
+    alt: "POZHIVU all products"
+  },
+  {
+    src: "/Products/background_final.png",
+    alt: "POZHIVU product background"
+  },
+  {
+    src: "/Products/brand_abmsdr.jpeg",
+    alt: "POZHIVU brand ambassador"
+  }
+];
+
 export function Hero() {
+  const [activeHeroImage, setActiveHeroImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveHeroImage((current) => (current + 1) % heroImages.length);
+    }, 7000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-cream dark:bg-[#11160f]">
-      <div className="luxury-container grid min-h-[calc(100vh-76px)] items-center gap-10 py-14 md:grid-cols-[0.95fr_1.05fr]">
+      <div className="luxury-container grid min-h-[calc(80vh-76px)] py-14 items-center gap-10   py-6 md:grid-cols-[0.95fr_1.05fr]">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="text-sm uppercase tracking-[0.28em] text-gold">Premium organic skincare</p>
-          <h1 className="mt-5 font-serif text-6xl font-bold leading-none text-forest dark:text-cream md:text-8xl">Nature's Essence in Every Bar</h1>
+          <h1 className="mt-3 font-serif text-6xl font-bold leading-none text-forest dark:text-cream md:text-8xl">Nature's Essence in Every Bar</h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-charcoal/70 dark:text-cream/70">Handmade donkey milk soaps enriched with botanicals, creamy oils and quiet luxury for everyday skin rituals.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/collection" className="focus-ring inline-flex items-center gap-2 rounded-full bg-forest px-6 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-cream hover:bg-charcoal dark:bg-gold dark:text-charcoal">Shop Collection <ArrowRight size={18} /></Link>
             <Link href="/support" className="focus-ring inline-flex items-center gap-2 rounded-full border border-forest/20 px-6 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-forest hover:bg-beige dark:border-cream/20 dark:text-cream">Talk to Care</Link>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative min-h-[520px]">
-          <div className="absolute inset-x-6 bottom-0 top-20 rounded-full bg-gold/25 blur-3xl" />
-          <div className="absolute left-0 top-8 h-72 w-56 overflow-hidden rounded-lg shadow-luxury md:h-96 md:w-72"><Image src={products[0].image} alt="Rose soap" fill className="object-cover" /></div>
-          <div className="absolute right-0 top-0 h-80 w-60 overflow-hidden rounded-lg shadow-luxury md:h-[460px] md:w-80"><Image src={products[4].image} alt="Lavender soap" fill className="object-cover" /></div>
-          <div className="absolute bottom-6 left-1/2 h-64 w-64 -translate-x-1/2 overflow-hidden rounded-lg border-8 border-cream shadow-luxury dark:border-[#11160f]"><Image src={products[5].image} alt="Plain soap" fill className="object-cover" /></div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative flex min-h-[360px] items-center justify-center md:min-h-[520px]"
+        >
+          <div className="absolute inset-x-0 bottom-6 top-6 rounded-full bg-gold/25 blur-3xl" />
+
+          <div className="relative h-[320px] w-full max-w-[520px] overflow-hidden rounded-lg shadow-luxury md:h-[500px] md:max-w-[680px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={heroImages[activeHeroImage].src}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroImages[activeHeroImage].src}
+                  alt={heroImages[activeHeroImage].alt}
+                  fill
+                  className="object-cover object-center"
+                  priority={activeHeroImage === 0}
+                  sizes="(max-width: 768px) 100vw, 52vw"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -43,7 +93,7 @@ export function Benefits() {
 export function About() {
   return (
     <section className="py-20">
-      <div className="luxury-container grid gap-10 md:grid-cols-2 md:items-center">
+      <div className="luxury-container grid gap-4 md:grid-cols-2 md:items-center">
         <div className="relative aspect-[4/5] overflow-hidden rounded-lg"><Image src="https://images.unsplash.com/photo-1607006483224-44b9b55b4563?auto=format&fit=crop&w=1000&q=85" alt="Handmade soap process" fill className="object-cover" /></div>
         <div>
           <p className="text-sm uppercase tracking-[0.28em] text-gold">Small batch process</p>
