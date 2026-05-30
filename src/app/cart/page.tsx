@@ -39,7 +39,6 @@ export default function CartPage() {
           <div className="mt-5 grid gap-3 text-sm">
             <Row label="Subtotal" value={formatPrice(totals.subtotal)} />
             <Row label="Discount" value={`-${formatPrice(totals.discount)}`} />
-            <Row label="Shipping" value={totals.shipping === 0 ? "Free" : formatPrice(totals.shipping)} />
             <Row label="Total" value={formatPrice(totals.total)} strong />
           </div>
           <Link href="/checkout" className="mt-6 block rounded-full bg-forest px-6 py-4 text-center font-semibold text-cream dark:bg-gold dark:text-charcoal">Checkout</Link>

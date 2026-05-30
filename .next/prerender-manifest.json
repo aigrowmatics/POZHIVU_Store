@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "7a6219cc458bf2d90f87d7e27ea118d4",
-    "previewModeSigningKey": "5df4b5573b58ac9685b423dede755a71981ea035a2812a7c66ad710d5e226d46",
-    "previewModeEncryptionKey": "ba5d45ecfb4cf9734ef18cf8bae1f1a54a3ba74b1ddeeaead9398e98b021f49f"
-  }
-}
+{"version":4,"routes":{"/product/rose-soap":{},"/product/mint-soap":{},"/product/nargis-soap":{},"/product/coco-soap":{},"/product/lavender-soap":{},"/product/plain-soap":{},"/product/all-products":{}},"dynamicRoutes":{"/product/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/product/[slug]","routeRegex":"^\\/product\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"7a6219cc458bf2d90f87d7e27ea118d4","previewModeSigningKey":"5df4b5573b58ac9685b423dede755a71981ea035a2812a7c66ad710d5e226d46","previewModeEncryptionKey":"ba5d45ecfb4cf9734ef18cf8bae1f1a54a3ba74b1ddeeaead9398e98b021f49f"}}

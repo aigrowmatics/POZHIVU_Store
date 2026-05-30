@@ -22,7 +22,7 @@ export function Footer() {
         </div>
         <div>
           <h3 className="text-sm uppercase tracking-[0.2em] text-gold">Support</h3>
-          <p className="mt-4 text-sm text-cream/75">care@pozhivu.com<br />+91 98765 43210<br />Kochi, Kerala, India</p>
+          <p className="mt-4 text-sm text-cream/75">pozhivu.support@gmail.com<br />+91 9894012487<br />Coimbatore, Tamilnadu, India</p>
         </div>
       </div>
     </footer>

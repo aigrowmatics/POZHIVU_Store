@@ -191,6 +191,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/orders/notify/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/orders/notify">> = Specific
+  const handler = {} as typeof import("../../src/app/api/orders/notify/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/payments/razorpay/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/payments/razorpay">> = Specific
@@ -204,15 +213,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/payments/stripe">> = Specific
   const handler = {} as typeof import("../../src/app/api/payments/stripe/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/shipping/pincode/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/shipping/pincode">> = Specific
-  const handler = {} as typeof import("../../src/app/api/shipping/pincode/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

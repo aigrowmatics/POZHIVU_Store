@@ -19,7 +19,7 @@ const heroImages = [
     alt: "POZHIVU product background"
   },
   {
-    src: "/Products/brand_abmsdr.jpeg",
+    src: "/Products/handmade_soap.png",
     alt: "POZHIVU brand ambassador"
   }
 ];
@@ -37,7 +37,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-cream dark:bg-[#11160f]">
-      <div className="luxury-container grid min-h-[calc(80vh-76px)] py-14 items-center gap-10   py-6 md:grid-cols-[0.95fr_1.05fr]">
+      <div className="luxury-container grid min-h-auto py-0 items-center gap-4 md:grid-cols-[0.95fr_1.05fr]">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="text-sm uppercase tracking-[0.28em] text-gold">Premium organic skincare</p>
           <h1 className="mt-3 font-serif text-6xl font-bold leading-none text-forest dark:text-cream md:text-8xl">Nature's Essence in Every Bar</h1>
@@ -51,11 +51,11 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative flex min-h-[360px] items-center justify-center md:min-h-[520px]"
+          className="relative flex items-center justify-center"
         >
           <div className="absolute inset-x-0 bottom-6 top-6 rounded-full bg-gold/25 blur-3xl" />
 
-          <div className="relative h-[320px] w-full max-w-[520px] overflow-hidden rounded-lg shadow-luxury md:h-[500px] md:max-w-[680px]">
+          <div className="relative h-[320px] w-full overflow-hidden rounded-lg shadow-luxury md:h-[500px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={heroImages[activeHeroImage].src}
@@ -69,9 +69,9 @@ export function Hero() {
                   src={heroImages[activeHeroImage].src}
                   alt={heroImages[activeHeroImage].alt}
                   fill
-                  className="object-cover object-center"
                   priority={activeHeroImage === 0}
-                  sizes="(max-width: 768px) 100vw, 52vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain object-center"
                 />
               </motion.div>
             </AnimatePresence>
@@ -92,14 +92,38 @@ export function Benefits() {
 
 export function About() {
   return (
-    <section className="py-20">
+    <section className="py-8 md:py-10">
       <div className="luxury-container grid gap-4 md:grid-cols-2 md:items-center">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-lg"><Image src="https://images.unsplash.com/photo-1607006483224-44b9b55b4563?auto=format&fit=crop&w=1000&q=85" alt="Handmade soap process" fill className="object-cover" /></div>
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-transparent">
+          <Image
+            src="/Products/handmade_soap.png"
+            alt="Handmade soap process"
+            fill
+            className="object-contain object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+
         <div>
-          <p className="text-sm uppercase tracking-[0.28em] text-gold">Small batch process</p>
-          <h2 className="mt-4 font-serif text-5xl font-bold text-forest dark:text-cream">Milk proteins, botanical oils and slow curing.</h2>
-          <p className="mt-5 text-lg leading-8 text-charcoal/70 dark:text-cream/70">POZHIVU bars are shaped around a creamy donkey milk base, natural oils and careful finishing. The result is a polished bar with a soft lather, gentle cleanse and gift-ready presence.</p>
-          <div className="mt-8 grid grid-cols-3 gap-4"><Counter value="6" label="Soap variants" /><Counter value="21" label="Day cure" /><Counter value="0" label="Parabens" /></div>
+          <p className="text-sm uppercase tracking-[0.28em] text-gold">
+            Small batch process
+          </p>
+
+          <h2 className="mt-4 font-serif text-5xl font-bold text-forest dark:text-cream">
+            Milk proteins, botanical oils and slow curing.
+          </h2>
+
+          <p className="mt-5 text-lg leading-8 text-charcoal/70 dark:text-cream/70">
+            POZHIVU bars are shaped around a creamy donkey milk base,
+            natural oils and careful finishing. The result is a polished bar
+            with a soft lather, gentle cleanse and gift-ready presence.
+          </p>
+
+          <div className="mt-8 grid grid-cols-3 gap-4">
+            <Counter value="6" label="Soap variants" />
+            <Counter value="21" label="Day cure" />
+            <Counter value="0" label="Parabens" />
+          </div>
         </div>
       </div>
     </section>
@@ -107,7 +131,7 @@ export function About() {
 }
 
 export function Testimonials() {
-  return <section className="bg-forest py-20 text-cream"><div className="luxury-container"><SectionTitle eyebrow="Reviews" title="Loved by sensitive-skin customers" light /><div className="mt-10 grid gap-6 md:grid-cols-3">{testimonials.map((item) => <figure key={item.name} className="rounded-lg border border-cream/10 p-6"><div className="flex gap-1 text-gold">{Array.from({ length: item.rating }).map((_, i) => <Sparkles key={i} size={16} />)}</div><blockquote className="mt-5 text-lg leading-8">"{item.quote}"</blockquote><figcaption className="mt-5 text-sm text-cream/65">{item.name}, {item.city}</figcaption></figure>)}</div><div className="mt-10 flex flex-wrap gap-4 text-sm text-cream/75"><span className="inline-flex items-center gap-2"><ShieldCheck size={18} /> Secure payments</span><span className="inline-flex items-center gap-2"><Truck size={18} /> Shiprocket ready</span><span className="inline-flex items-center gap-2"><CheckCircle2 size={18} /> Quality checked batches</span></div></div></section>;
+  return <section className="bg-forest py-20 text-cream"><div className="luxury-container"><SectionTitle eyebrow="Reviews" title="Loved by sensitive-skin customers" light /><div className="mt-10 grid gap-6 md:grid-cols-3">{testimonials.map((item) => <figure key={item.name} className="rounded-lg border border-cream/10 p-6"><div className="flex gap-1 text-gold">{Array.from({ length: item.rating }).map((_, i) => <Sparkles key={i} size={16} />)}</div><blockquote className="mt-5 text-lg leading-8">"{item.quote}"</blockquote><figcaption className="mt-5 text-sm text-cream/65">{item.name}, {item.city}</figcaption></figure>)}</div><div className="mt-10 flex flex-wrap gap-4 text-sm text-cream/75"><span className="inline-flex items-center gap-2"><ShieldCheck size={18} /> Secure payments</span><span className="inline-flex items-center gap-2"><Truck size={18} /> Store-managed dispatch</span><span className="inline-flex items-center gap-2"><CheckCircle2 size={18} /> Quality checked batches</span></div></div></section>;
 }
 
 export function InstagramGallery() {

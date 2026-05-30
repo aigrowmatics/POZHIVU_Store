@@ -47,6 +47,5 @@ export const useCartStore = create<CartState>()(
 export function cartTotals(items: CartItem[], coupon: string | null) {
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const discount = coupon?.toUpperCase() === "POZHIVU10" ? Math.round(subtotal * 0.1) : 0;
-  const shipping = subtotal - discount >= 999 || subtotal === 0 ? 0 : 79;
-  return { subtotal, discount, shipping, total: subtotal - discount + shipping };
+  return { subtotal, discount, total: subtotal - discount };
 }
