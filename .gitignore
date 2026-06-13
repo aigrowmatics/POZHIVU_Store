@@ -4,6 +4,7 @@ node_modules/
 # next.js
 .next/
 out/
+.vercel/
 
 # production
 build/
@@ -22,3 +23,16 @@ pnpm-debug.log*
 
 # generated
 tsconfig.tsbuildinfo
+
+# local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# local backups
+*.original_backup
+
+# temporary files
+*.tmp
+*.temp
